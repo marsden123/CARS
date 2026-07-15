@@ -6,5 +6,5 @@ import 'package:new_acs314b/VIEWS/registration.dart';
 var routes = [
   GetPage(name: "/", page: () => LoginScreen()),
   GetPage(name: "/register", page: () => SignupScreen()),
-  GetPage(name: "home", page: () => HomeScreen()),
+  GetPage(name: "/home", page: () => HomeScreen()),
 ];
