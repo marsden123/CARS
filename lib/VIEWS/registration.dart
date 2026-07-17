@@ -25,15 +25,15 @@ class _RegistrationScreenState extends State<SignupScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.network(
-                  "https://placehold.co/600x400/000000/FFFFFF/png",
-                  height: 150,
-                  width: 150,
+                Image.asset(
+                  "assets/daystar.jpg",
+                  height: 50,
+                  width: 50,
+                  fit: BoxFit.contain,
                 ),
               ],
             ),
-
-            const SizedBox(height: 20),
+            SizedBox(height: 5),
 
             Text(
               "Full Name:",
@@ -51,10 +51,10 @@ class _RegistrationScreenState extends State<SignupScreen> {
               ),
             ),
 
-            const SizedBox(height: 15),
+            SizedBox(height: 5),
 
             Text(
-              "Email:",
+              "Email f:",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -69,7 +69,7 @@ class _RegistrationScreenState extends State<SignupScreen> {
               ),
             ),
 
-            const SizedBox(height: 15),
+            SizedBox(height: 5),
 
             Text(
               "Password:",
@@ -88,7 +88,7 @@ class _RegistrationScreenState extends State<SignupScreen> {
               ),
             ),
 
-            const SizedBox(height: 15),
+            SizedBox(height: 5),
 
             Text(
               "Confirm Password:",
@@ -107,7 +107,7 @@ class _RegistrationScreenState extends State<SignupScreen> {
               ),
             ),
 
-            const SizedBox(height: 25),
+            SizedBox(height: 5),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

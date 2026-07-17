@@ -27,18 +27,14 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /*Image.asset(
-                "assets/images/logo.png",
-                height: 200,
-                width: 400,
-              ),*/
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.network(
-                  "https://placehold.co/600x400/000000/FFFFFF/png",
+                Image.asset(
+                  "assets/daystar.jpg",
                   height: 200,
-                  width: 100,
+                  width: 400,
+                  fit: BoxFit.contain,
                 ),
               ],
             ),
