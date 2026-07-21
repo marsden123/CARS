@@ -10,6 +10,6 @@ class MyOrders extends StatefulWidget {
 class _MyOrdersState extends State<MyOrders> {
   @override
   Widget build(BuildContext context) {
-    return const Text("ORDERS");
+    return Scaffold();
   }
 }
