@@ -109,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyle(color: sixthColor),
                   ),
                   onTap: () {
-                    // Get.toNamed("/");
+                    Get.toNamed("/Forgot");
                   },
                 ),
               ],
