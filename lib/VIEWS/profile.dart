@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:new_acs314b/configs/colors.dart';
 import 'package:new_acs314b/configs/swidgets.dart'; // for ObjectW
 
@@ -15,7 +17,6 @@ class ProfileScreen extends StatelessWidget {
         backgroundColor: fifthColor,
       ),
       body: SingleChildScrollView(
-        // overflowing stopps makes content scrollable
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -32,7 +33,6 @@ class ProfileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
 
-            // Info section using ObjectW
             ObjectW(
               icon: Icons.email_outlined,
               title: "Email",
@@ -60,12 +60,12 @@ class ProfileScreen extends StatelessWidget {
             // Edit button
             MaterialButton(
               onPressed: () {
-                // will be used for editing the user profile
+                Get.toNamed("/");
               },
               color: fifthColor,
               height: 40,
               minWidth: 120,
-              child: Text("Edit Profile", style: TextStyle(color: thirdColor)),
+              child: Text("Leave account", style: TextStyle(color: thirdColor)),
             ),
           ],
         ),

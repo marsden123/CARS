@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:new_acs314b/configs/colors.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -131,7 +133,9 @@ class _RegistrationScreenState extends State<SignupScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed("/");
+                  },
                   color: fifthColor,
                   height: 50,
                   minWidth: 150,

@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: fourthColor,
-        title: const Text("WELCOME ASPRIRING CAR ENTHUSIASISTS"),
+        title: const Text("WELCOME TO MOTMOTO WORKSHOP"),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
           IconButton(onPressed: () {}, icon: const Icon(Icons.logout)),
@@ -76,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 MaterialButton(
                   onPressed: () {
-                    Get.toNamed("/home");
+                    Get.toNamed("/Onboard");
                   },
                   color: fifthColor,
                   height: 50,
@@ -103,9 +103,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 // SizedBox(width: 10),
                 Spacer(),
-                Text(
-                  "Forgot Password? Reset",
-                  style: TextStyle(color: sixthColor),
+                GestureDetector(
+                  child: Text(
+                    "Forgot Password? Reset",
+                    style: TextStyle(color: sixthColor),
+                  ),
+                  onTap: () {
+                    // Get.toNamed("/");
+                  },
                 ),
               ],
             ),

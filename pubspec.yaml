@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   fl_chart: ^0.63.0
   animated_bottom_navigation_bar: ^1.4.0
+  smooth_page_indicator: ^1.0.1
 
 dev_dependencies:
   flutter_test:
