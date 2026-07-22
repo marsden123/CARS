@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:new_acs314b/configs/colors.dart';
 
 class ObjectW extends StatefulWidget {
-  final String? imagePath; // Optional
-  final IconData? icon; // Optional
+  final String? imagePath;
+  final IconData? icon;
   final String title;
   final String? subtitle;
+  final String? price;
+  final String? location;
   final double? height;
   final double? width;
 
@@ -15,6 +17,8 @@ class ObjectW extends StatefulWidget {
     this.icon,
     required this.title,
     this.subtitle,
+    this.price,
+    this.location,
     this.height,
     this.width,
   });
@@ -31,8 +35,6 @@ class _ObjectWState extends State<ObjectW> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: Container(
-          height: widget.height ?? 50,
-          width: widget.width ?? 50,
           decoration: BoxDecoration(
             color: sixthColor,
             image: widget.imagePath != null
@@ -42,29 +44,80 @@ class _ObjectWState extends State<ObjectW> {
                   )
                 : null,
           ),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                if (widget.icon != null)
-                  Icon(widget.icon, size: 20, color: Colors.white),
-                if (widget.icon != null) const SizedBox(height: 8),
-                Text(
-                  widget.title,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+          child: widget.imagePath != null
+              ? Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Container(
+                    width: double.infinity,
+                    color: Colors.black54,
+                    padding: const EdgeInsets.all(8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          widget.title,
+                          style: const TextStyle(
+                            color: thirdColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        if (widget.subtitle != null)
+                          Text(
+                            "Mileage: ${widget.subtitle!}",
+                            style: const TextStyle(
+                              color: thirdColor,
+                              fontSize: 12,
+                            ),
+                          ),
+                        if (widget.location != null)
+                          Text(
+                            "Location: ${widget.location!}",
+                            style: const TextStyle(
+                              color: thirdColor,
+                              fontSize: 12,
+                            ),
+                          ),
+                        if (widget.price != null)
+                          Text(
+                            "Price: ${widget.price!}",
+                            style: const TextStyle(
+                              color: sixthColor,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                )
+              : Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (widget.icon != null)
+                        Icon(widget.icon, size: 20, color: thirdColor),
+                      if (widget.icon != null) const SizedBox(height: 8),
+                      Text(
+                        widget.title,
+                        style: const TextStyle(
+                          color: thirdColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      if (widget.subtitle != null)
+                        Text(
+                          widget.subtitle!,
+                          style: const TextStyle(
+                            color: thirdColor,
+                            fontSize: 12,
+                          ),
+                        ),
+                    ],
                   ),
                 ),
-                if (widget.subtitle != null)
-                  Text(
-                    widget.subtitle!,
-                    style: const TextStyle(color: Colors.white70, fontSize: 12),
-                  ),
-              ],
-            ),
-          ),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_acs314b/configs/charts.dart'; // contains RevenueChart
 import 'package:new_acs314b/configs/colors.dart';
 import 'package:new_acs314b/configs/swidgets.dart';
 
@@ -23,42 +24,48 @@ class _MyDashboardState extends State<MyDashboard> {
         backgroundColor: fifthColor,
         elevation: 0,
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
-        child: GridView.count(
-          crossAxisCount: 2,
-          crossAxisSpacing: 12,
-          mainAxisSpacing: 12,
-          childAspectRatio: 2.4,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ObjectW(
-              icon: Icons.directions_car,
-              title: "Cars",
-              subtitle: "12 listings",
-              height: 100,
-              width: 100,
+            // Dashboard cards in a grid
+            GridView.count(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              crossAxisCount: 2,
+              crossAxisSpacing: 12,
+              mainAxisSpacing: 12,
+              childAspectRatio: 2.4,
+              children: const [
+                ObjectW(
+                  icon: Icons.directions_car,
+                  title: "Cars",
+                  subtitle: "12 listings",
+                ),
+                ObjectW(icon: Icons.sell, title: "Sold Cars", subtitle: "45"),
+                ObjectW(
+                  icon: Icons.favorite,
+                  title: "Most Viewed",
+                  subtitle: "8 cars",
+                ),
+                ObjectW(
+                  icon: Icons.attach_money,
+                  title: "Revenue",
+                  subtitle: "569,000 Ksh",
+                ),
+              ],
             ),
-            ObjectW(
-              icon: Icons.sell,
-              title: "Sold cars",
-              subtitle: "45",
-              height: 100,
-              width: 100,
+
+            const SizedBox(height: 30),
+
+            // Chart section
+            const Text(
+              "Monthly Revenue",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            ObjectW(
-              icon: Icons.favorite,
-              title: "Most viewed",
-              subtitle: "8 cars",
-              // height: 100,
-              width: 100,
-            ),
-            ObjectW(
-              icon: Icons.person,
-              title: "Revenue this month",
-              subtitle: "569, 000 ksh",
-              height: 100,
-              width: 100,
-            ),
+            const SizedBox(height: 10),
+            const RevenueChart(), // ✅ chart now has its own space
           ],
         ),
       ),

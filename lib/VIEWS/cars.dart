@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_acs314b/configs/colors.dart';
+import 'package:new_acs314b/configs/swidgets.dart';
 
 class Mycars extends StatefulWidget {
   const Mycars({super.key});
@@ -9,29 +10,77 @@ class Mycars extends StatefulWidget {
 }
 
 class _MycarsState extends State<Mycars> {
-  // Sample car data - you can replace with your own
   final List<Map<String, dynamic>> _cars = [
     {
       'title': 'Nissan Note Epower 2021',
       'location': 'Ridgeways · 10 min ago',
       'specs': '1200 cc · automatic · diesel',
-      'condition': 'Foreign used',
       'price': 'KES 1,750,000',
-      'financing': 'Cars360 Financing',
-      'inspection': 'View inspection report',
-      'image': 'assets/car1.jpg',
+      'image': 'assets/whiteo.jpg',
     },
     {
       'title': 'Toyota Harrier 2018',
       'location': 'Nairobi · 2 hours ago',
       'specs': '2400 cc · automatic · petrol',
-      'condition': 'Local used',
       'price': 'KES 4,500,000',
-      'financing': 'Cars360 Financing',
-      'inspection': 'View inspection report',
-      'image': 'assets/car2.jpg',
+      'image': 'assets/toyota.jpg',
     },
-    // Add more cars here...
+    {
+      'title': 'Renault Van',
+      'location': 'Madrid · 1 hour ago',
+      'specs': '1600 cc · manual · diesel',
+      'condition': 'Local used',
+      'price': 'KES 1,200,000',
+      'image': 'assets/Vant.jpg',
+    },
+    {
+      'title': 'BMW Sedan',
+      'location': 'Nairobi · 30 min ago',
+      'specs': '2000 cc · automatic · petrol',
+      'condition': 'Foreign used',
+      'price': 'KES 3,800,000',
+      'image': 'assets/bmw4.jpg',
+    },
+    {
+      'title': 'Audi SUV',
+      'location': 'Westlands · 2 hours ago',
+      'specs': '3000 cc · automatic · petrol',
+      'condition': 'Foreign used',
+      'price': 'KES 5,500,000',
+      'image': 'assets/audiw.jpg',
+    },
+    {
+      'title': 'Ferrari F12tdf',
+      'location': 'Zurich · 10 min ago',
+      'specs': '6200 cc · automatic · petrol',
+      'condition': 'Foreign used',
+      'price': 'KES 45,000,000',
+      'image': 'assets/fer.jpg',
+    },
+    {
+      'title': 'Honda Sedan',
+      'location': 'Bentota · 1 hour ago',
+      'specs': '1800 cc · automatic · petrol',
+      'condition': 'Local used',
+      'price': 'KES 2,200,000',
+      'image': 'assets/Hondac.jpg',
+    },
+    {
+      'title': 'Mercedes-Benz',
+      'location': 'Virginia · 3 hours ago',
+      'specs': '2200 cc · automatic · petrol',
+      'condition': 'Foreign used',
+      'price': 'KES 6,000,000',
+      'image': 'assets/mercedes.jpg',
+    },
+    {
+      'title': 'Nissan Skyline GT-R R34',
+      'location': 'Tokyo · 20 min ago',
+      'specs': '2600 cc · manual · petrol',
+      'condition': 'Foreign used',
+      'price': 'KES 12,000,000',
+      'image': 'assets/nissang.jpg',
+    },
   ];
 
   @override
@@ -49,169 +98,27 @@ class _MycarsState extends State<Mycars> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(12),
-        child: ListView.builder(
+        child: GridView.builder(
           itemCount: _cars.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            crossAxisSpacing: 12,
+            mainAxisSpacing: 12,
+            childAspectRatio: 1.0,
+          ),
           itemBuilder: (context, index) {
-            return _buildCarCard(_cars[index]);
+            final car = _cars[index];
+            return ObjectW(
+              imagePath: car['image'],
+              title: car['title'],
+              subtitle: car['specs'],
+              price: car['price'],
+              location: car['location'],
+              height: 200,
+              width: double.infinity,
+            );
           },
         ),
-      ),
-    );
-  }
-
-  // Car Card Widget
-  Widget _buildCarCard(Map<String, dynamic> car) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 12),
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withValues(alpha: 0.1),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Title
-          Text(
-            car['title'],
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: fourthColor,
-            ),
-          ),
-
-          const SizedBox(height: 4),
-
-          // Location
-          Row(
-            children: [
-              Icon(Icons.location_on, size: 14, color: Colors.grey[600]),
-              const SizedBox(width: 4),
-              Text(
-                car['location'],
-                style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-              ),
-            ],
-          ),
-
-          const SizedBox(height: 6),
-
-          // Specs Row
-          Wrap(
-            spacing: 6,
-            runSpacing: 4,
-            children: car['specs'].split(' · ').map<Widget>((spec) {
-              return Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Text(
-                  spec,
-                  style: TextStyle(fontSize: 11, color: Colors.grey[700]),
-                ),
-              );
-            }).toList(),
-          ),
-
-          const SizedBox(height: 4),
-
-          // Condition
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-            decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Text(
-              car['condition'],
-              style: TextStyle(fontSize: 11, color: Colors.grey[600]),
-            ),
-          ),
-
-          const SizedBox(height: 10),
-
-          // Divider
-          const Divider(thickness: 1),
-
-          const SizedBox(height: 8),
-
-          // Price
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "SELLING PRICE",
-                    style: TextStyle(
-                      fontSize: 10,
-                      color: Colors.grey[500],
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  Text(
-                    car['price'],
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: fifthColor,
-                    ),
-                  ),
-                ],
-              ),
-              // Financing and Inspection Tags
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  _buildTag(
-                    Icons.monetization_on,
-                    car['financing'],
-                    Colors.green,
-                  ),
-                  const SizedBox(height: 2),
-                  _buildTag(Icons.assignment, car['inspection'], Colors.blue),
-                ],
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  // Tag Widget
-  Widget _buildTag(IconData icon, String label, Color color) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(4),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 10, color: color),
-          const SizedBox(width: 2),
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 9,
-              color: color,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ],
       ),
     );
   }

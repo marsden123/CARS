@@ -1,85 +1,71 @@
 import 'package:flutter/material.dart';
 import 'package:new_acs314b/configs/colors.dart';
+import 'package:new_acs314b/configs/swidgets.dart'; // for ObjectW
 
-class ProfileScreen extends StatefulWidget {
+class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
-  @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
-}
-
-class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: thirdColor,
       appBar: AppBar(
-        title: const Text("Profile"),
+        title: const Text("My Profile"),
         centerTitle: true,
         backgroundColor: fifthColor,
       ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+      body: SingleChildScrollView(
+        // overflowing stopps makes content scrollable
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              "Your Name : ",
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-                color: fourthColor,
-              ),
+            // Profile picture
+            CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage("assets/mustaang.jpg"),
             ),
-            TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.person_2),
-                prefixIconColor: sixthColor,
-              ),
+            const SizedBox(height: 12),
+            const Text(
+              "Priyal Sharma",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+
+            // Info section using ObjectW
+            ObjectW(
+              icon: Icons.email_outlined,
+              title: "Email",
+              subtitle: "priyalnem@gmail.com",
+              height: 70,
+              width: double.infinity,
+            ),
+            ObjectW(
+              icon: Icons.phone_android,
+              title: "Phone",
+              subtitle: "+254798237463",
+              height: 70,
+              width: double.infinity,
+            ),
+            ObjectW(
+              icon: Icons.location_on,
+              title: "Location",
+              subtitle: "Machakos County, Kenya",
+              height: 70,
+              width: double.infinity,
             ),
 
-            Text(
-              "Email: ",
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-                color: fourthColor,
-              ),
-            ),
-            TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.email_outlined),
-                prefixIconColor: sixthColor,
-              ),
-            ),
+            const SizedBox(height: 20),
 
-            Text(
-              "Phone : ",
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-                color: fourthColor,
-              ),
-            ),
-            TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.phone_android),
-                prefixIconColor: sixthColor,
-              ),
-            ),
-
-            SizedBox(height: 20),
-            Center(
-              child: MaterialButton(
-                onPressed: () {},
-                color: fifthColor,
-                height: 40,
-                minWidth: 120,
-                child: Text("Save", style: TextStyle(color: thirdColor)),
-              ),
+            // Edit button
+            MaterialButton(
+              onPressed: () {
+                // will be used for editing the user profile
+              },
+              color: fifthColor,
+              height: 40,
+              minWidth: 120,
+              child: Text("Edit Profile", style: TextStyle(color: thirdColor)),
             ),
           ],
         ),

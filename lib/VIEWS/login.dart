@@ -13,10 +13,11 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: thirdColor,
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: primaryColor,
-        title: const Text("Grading App"),
+        backgroundColor: fourthColor,
+        title: const Text("WELCOME ASPRIRING CAR ENTHUSIASISTS"),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
           IconButton(onPressed: () {}, icon: const Icon(Icons.logout)),
@@ -31,9 +32,9 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  "assets/daystar.jpg",
+                  "assets/MOTOLOGO.jpg",
                   height: 200,
-                  width: 400,
+                  width: 300,
                   fit: BoxFit.contain,
                 ),
               ],
@@ -44,13 +45,13 @@ class _LoginScreenState extends State<LoginScreen> {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: secondaryColor,
+                color: fourthColor,
               ),
             ),
             TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.access_alarms),
+                prefixIcon: Icon(Icons.person, color: sixthColor),
               ),
             ),
             SizedBox(height: 20),
@@ -59,14 +60,14 @@ class _LoginScreenState extends State<LoginScreen> {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: secondaryColor,
+                color: fourthColor,
               ),
             ),
             TextField(
               obscureText: true,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.cabin_rounded),
+                prefixIcon: Icon(Icons.lock, color: sixthColor),
               ),
             ),
             SizedBox(height: 20),
@@ -77,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   onPressed: () {
                     Get.toNamed("/home");
                   },
-                  color: primaryColor,
+                  color: fifthColor,
                   height: 50,
                   minWidth: 100,
 
@@ -94,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 GestureDetector(
                   child: Text(
                     "Not Registered? Sign up",
-                    style: TextStyle(color: secondaryColor),
+                    style: TextStyle(color: sixthColor),
                   ),
                   onTap: () {
                     Get.toNamed("register");
@@ -104,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Spacer(),
                 Text(
                   "Forgot Password? Reset",
-                  style: TextStyle(color: secondaryColor),
+                  style: TextStyle(color: sixthColor),
                 ),
               ],
             ),

@@ -15,7 +15,7 @@ class _RegistrationScreenState extends State<SignupScreen> {
       appBar: AppBar(
         title: const Text("Registration"),
         centerTitle: true,
-        backgroundColor: primaryColor,
+        backgroundColor: fourthColor,
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
@@ -26,9 +26,9 @@ class _RegistrationScreenState extends State<SignupScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  "assets/daystar.jpg",
-                  height: 50,
-                  width: 50,
+                  "assets/MOTOLOGO.jpg",
+                  height: 80,
+                  width: 80,
                   fit: BoxFit.contain,
                 ),
               ],
@@ -40,32 +40,32 @@ class _RegistrationScreenState extends State<SignupScreen> {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: secondaryColor,
+                color: fourthColor,
               ),
             ),
 
             const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.person),
+                prefixIcon: Icon(Icons.person, color: sixthColor),
               ),
             ),
 
             SizedBox(height: 5),
 
             Text(
-              "Email f:",
+              "Email:",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: secondaryColor,
+                color: fourthColor,
               ),
             ),
 
             const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.email),
+                prefixIcon: Icon(Icons.email, color: sixthColor),
               ),
             ),
 
@@ -76,7 +76,7 @@ class _RegistrationScreenState extends State<SignupScreen> {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: secondaryColor,
+                color: fourthColor,
               ),
             ),
 
@@ -84,7 +84,7 @@ class _RegistrationScreenState extends State<SignupScreen> {
               obscureText: true,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.lock),
+                prefixIcon: Icon(Icons.lock, color: sixthColor),
               ),
             ),
 
@@ -95,7 +95,7 @@ class _RegistrationScreenState extends State<SignupScreen> {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: secondaryColor,
+                color: fourthColor,
               ),
             ),
 
@@ -103,10 +103,28 @@ class _RegistrationScreenState extends State<SignupScreen> {
               obscureText: true,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.lock_outline),
+                prefixIcon: Icon(Icons.lock_outline, color: sixthColor),
               ),
             ),
 
+            SizedBox(height: 5),
+
+            Text(
+              "Phone number:",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: fourthColor,
+              ),
+            ),
+
+            const TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.phone_android, color: sixthColor),
+              ),
+            ),
             SizedBox(height: 5),
 
             Row(
@@ -114,7 +132,7 @@ class _RegistrationScreenState extends State<SignupScreen> {
               children: [
                 MaterialButton(
                   onPressed: () {},
-                  color: primaryColor,
+                  color: fifthColor,
                   height: 50,
                   minWidth: 150,
                   child: const Text(
